@@ -1,5 +1,7 @@
 import React from 'react';
 
-const App = () => <h1>Hello</h1>;
+import HeaderView from './module/header/HeaderView';
+
+const App = () => <HeaderView />;
 
 export default App;
