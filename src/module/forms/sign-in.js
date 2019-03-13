@@ -21,6 +21,10 @@ export default class SignIn extends Component {
     this.reset();
   };
 
+  reset = () => {
+    this.setState({ ...INITIAL_STATE });
+  };
+
   render() {
     const { email, password } = this.state;
     return (
@@ -32,6 +36,7 @@ export default class SignIn extends Component {
           value={email}
           onChange={this.handleChange}
         />
+        <br />
         <input
           type="password"
           placeholder="password"
@@ -39,7 +44,8 @@ export default class SignIn extends Component {
           value={password}
           onChange={this.handleChange}
         />
-        <button type="button">Sign in </button>
+        <br />
+        <button type="submit">Sign in </button>
       </form>
     );
   }

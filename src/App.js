@@ -1,16 +1,18 @@
-import React from 'react';
-import HeaderView from './module/header/HeaderView';
-import TableOfOrderHistory from './module/OrderHistory/TableOfOrderHistory';
-import MenuView from './module/Menu/MenuView';
-import SignIn from './module/Forms/SignIn';
+import React, { Fragment } from 'react';
+import HeaderView from './module/header/header-view';
+import TableOfOrderHistory from './module/order-history/history-table';
+import MenuContainer from './module/menu/menu-container';
+import SignIn from './module/forms/sign-in';
+import SignUp from './module/forms/sign-up';
 
 const App = () => (
-  <div>
+  <Fragment>
     <HeaderView />
     <TableOfOrderHistory />
-    <MenuView />
+    <MenuContainer />
     <SignIn />
-  </div>
+    <SignUp />
+  </Fragment>
 );
 
 export default App;

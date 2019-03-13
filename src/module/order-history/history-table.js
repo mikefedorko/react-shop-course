@@ -1,6 +1,6 @@
 import React from 'react';
-import HistoryList from './HistoryList';
-import orderHistory from './order-history.json';
+import HistoryList from './history-list';
+import orderHistory from '../database/order-history.json';
 
 const Table = () => <HistoryList history={orderHistory} />;
 

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Nav from './Nav';
+import Nav from './nav';
 
-import UserMenu from './UserMenu';
+import UserMenu from './user-menu';
 
-import Logo from './Logo';
+import Logo from './logo';
 
 import logo from './logo.png';
 

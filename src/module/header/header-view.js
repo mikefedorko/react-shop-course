@@ -1,6 +1,6 @@
 import React from 'react';
 
-import HeaderContainer from './HeaderContainer';
+import HeaderContainer from './header-container';
 
 const HeaderView = () => <HeaderContainer />;
 

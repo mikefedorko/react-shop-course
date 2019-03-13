@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentsAndSelect from './form';
 
 const ProductList = ({ menu }) => (
   <div>
@@ -14,6 +15,9 @@ const ProductList = ({ menu }) => (
             <li>{ingridient}</li>
           ))}
         </ul>
+        <section>
+          <CommentsAndSelect />
+        </section>
       </section>
     ))}
   </div>
