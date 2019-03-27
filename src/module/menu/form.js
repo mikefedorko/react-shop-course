@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import v4 from 'uuid/v4';
 
 export default class CommentsAndSelect extends Component {
   state = {
@@ -34,7 +35,7 @@ export default class CommentsAndSelect extends Component {
             name="textarea"
             value={textarea}
             onChange={this.handleChange}
-            id="textarea"
+            id={v4()}
             cols={40}
             rows={5}
           />

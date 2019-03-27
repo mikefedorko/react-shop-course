@@ -1,8 +1,8 @@
 import React from 'react';
 
 const SearchForm = ({ handleChange, value }) => (
-  <form onChange={handleChange}>
-    <input type="text" value={value} />
+  <form>
+    <input type="text" value={value} onChange={handleChange} />
   </form>
 );
 
