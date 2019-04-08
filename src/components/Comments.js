@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import v4 from 'uuid/v4';
 
-export default class CommentsAndSelect extends Component {
+export default class Comments extends Component {
   state = {
-    textarea: '',
-    rating: ''
+    textarea: ''
   };
 
   handleChange = ({ target }) => {
@@ -20,35 +18,28 @@ export default class CommentsAndSelect extends Component {
 
   reset = () => {
     this.setState({
-      textarea: '',
-      rating: ''
+      textarea: ''
     });
   };
 
   render() {
-    const { textarea, rating } = this.state;
+    const { textarea } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="textarea">
           Comments:
+          <br />
           <textarea
             name="textarea"
             value={textarea}
             onChange={this.handleChange}
-            id={v4()}
+            id="textarea"
             cols={40}
             rows={5}
           />
+          <br />
           <button type="submit">Add comment</button>
         </label>
-        <select name="rating" value={rating} onChange={this.handleChange}>
-          <option value="" disabled>
-            ...
-          </option>
-          <option value="1-5">1-5</option>
-          <option value="6-8">6-8</option>
-          <option value="9-10">9-10</option>
-        </select>
       </form>
     );
   }
