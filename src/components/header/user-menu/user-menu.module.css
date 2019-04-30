@@ -1,0 +1,11 @@
+.userMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.userName {
+  font-size: 20px;
+  user-select: none;
+}
