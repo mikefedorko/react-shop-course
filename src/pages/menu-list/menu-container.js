@@ -102,7 +102,8 @@ class MenuListContainer extends Component {
 const mapStateToProps = state => ({
   menu: Selectors.getAllMenu(state),
   categories: Selectors.getCategories(state),
-  loading: Selectors.getLoader(state)
+  loading: Selectors.getLoader(state),
+  isAuthenticated: Selectors.isAuthenticated(state)
 });
 
 const mapDispatchToProps = {

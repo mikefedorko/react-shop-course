@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import s from './menu-list.module.css';
 
-const MenuList = ({ menu = [], match, location, addToCart }) =>
+const MenuList = ({ menu = [], match, location, addToCart, isAuthenticated }) =>
   menu.length > 0 ? (
     <div className={s.menuListContainer}>
       {menu.map(({ id, name, image, price }) => (
@@ -25,9 +25,11 @@ const MenuList = ({ menu = [], match, location, addToCart }) =>
             <span>Цена: {price}</span>
             <br />
             <br />
-            <button type="button" onClick={() => addToCart(id)}>
-              Добавить в корзину
-            </button>
+            {isAuthenticated && (
+              <button type="button" onClick={() => addToCart(id)}>
+                Добавить в корзину
+              </button>
+            )}
           </li>
         </div>
       ))}

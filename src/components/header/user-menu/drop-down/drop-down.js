@@ -6,13 +6,10 @@ import userNavItems from '../../../../configs/user-nav';
 
 import s from './drop-down.module.css';
 
-const DropDown = () => (
+const DropDown = ({ onClick }) => (
   <div className={s.dropDown}>
     {userNavItems.map(item => {
       return (
-        // eslint-disable-next-line no-console
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
         <li key={item.name}>
           <Link to={item.path} className={s.dropDownList}>
             {item.name}
@@ -20,7 +17,9 @@ const DropDown = () => (
         </li>
       );
     })}
-    <button type="button">Log out</button>
+    <button type="button" onClick={onClick}>
+      Log out
+    </button>
   </div>
 );
 

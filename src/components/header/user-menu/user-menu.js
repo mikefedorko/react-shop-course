@@ -52,7 +52,11 @@ export default class UserMenu extends Component {
 
   render() {
     const { isDropDownOpen } = this.state;
-    const { avatar, name } = this.props;
+    const {
+      avatar,
+      user: { name },
+      onSignOut = () => null
+    } = this.props;
     return (
       <div
         onClick={this.openDropDown}
@@ -61,7 +65,7 @@ export default class UserMenu extends Component {
       >
         <Avatar srcLink={avatar} width={70} height={70} />
         <span className={s.userName}>{name}</span>
-        {isDropDownOpen && <DropDown />}
+        {isDropDownOpen && <DropDown onClick={onSignOut} />}
       </div>
     );
   }
