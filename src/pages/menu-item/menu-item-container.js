@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import Spinner from 'react-bootstrap/Spinner';
+import { Animated } from 'react-animated-css';
 
 import { Selectors, AsyncOperations } from '../../components/redux/menu';
-
-import MenuItem from './menu-item';
-import Spinner from '../../components/spinner/spinner';
+import MenuItem from './menu-item-view';
+// import Spinner from '../../components/spinner';
 
 class MenuItemContainer extends Component {
   componentDidMount() {
@@ -30,8 +31,14 @@ class MenuItemContainer extends Component {
     const { menuItem, loading } = this.props;
     return (
       <Fragment>
-        {loading && <Spinner />}
-        <MenuItem {...menuItem} onClick={this.handleGoBack} />
+        {loading && (
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        )}
+        <Animated animationIn="fadeIn">
+          <MenuItem {...menuItem} onClick={this.handleGoBack} />
+        </Animated>
       </Fragment>
     );
   }
@@ -40,7 +47,6 @@ class MenuItemContainer extends Component {
 const mapStateToProps = state => ({
   loading: Selectors.getLoader(state),
   menuItem: Selectors.getItemsById(state)
-  // ОБГОВОРИТЬ ОБНУЛЕНИЕ ЕГО ПРИ ВЫХОДЕ C РАУТА!!!!!!!!
 });
 
 const mapDispatchToProps = {

@@ -2,18 +2,19 @@ import React, { PureComponent, Fragment } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import HeaderContainer from './header';
+import Header from './header';
+import Footer from './footer';
+import ContactPanel from './contact-panel';
 import MainPage from '../pages/main';
 import AboutPage from '../pages/about';
 import AccountPage from '../pages/account';
 import SignUpPage from '../pages/sign-up';
 import SignInPage from '../pages/sign-in';
-import ContactPage from '../pages/contact';
+import ContactsPage from '../pages/contacts';
 import CartPage from '../pages/cart';
 import MenuItemPage from '../pages/menu-item';
 import MenuList from '../pages/menu-list';
 import OrderHistoryPage from '../pages/order-history';
-import PlannerPage from '../pages/planner';
 import NotFoundPage from '../pages/not-found';
 
 import routes from '../configs/routes';
@@ -31,14 +32,13 @@ class App extends PureComponent {
   render() {
     return (
       <Fragment>
-        <HeaderContainer />
-
+        <Header />
         <Switch>
           <Route exact path={routes.MAIN} component={MainPage} />
           <Route exact path={routes.MENU} component={MenuList} />
           <Route exact path={routes.MENU_ITEM} component={MenuItemPage} />
           <Route path={routes.ABOUT} component={AboutPage} />
-          <Route path={routes.CONTACT} component={ContactPage} />
+          <Route path={routes.CONTACT} component={ContactsPage} />
           <Route path={routes.SIGN_UP} component={SignUpPage} />
           <Route path={routes.SIGN_IN} component={SignInPage} />
 
@@ -57,15 +57,12 @@ class App extends PureComponent {
             redirectTo={routes.SIGN_IN}
             component={OrderHistoryPage}
           />
-          <ProtectedRoute
-            path={routes.PLANNER}
-            redirectTo={routes.SIGN_IN}
-            component={PlannerPage}
-          />
 
           <Route path={routes.NOT_FOUND} component={NotFoundPage} />
           <Redirect from="*" to={routes.NOT_FOUND} />
         </Switch>
+        <ContactPanel />
+        <Footer />
       </Fragment>
     );
   }

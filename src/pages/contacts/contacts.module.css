@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Josefin Sans', sans-serif;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+  background-size: contain;
+  background-image: url(https://images.pexels.com/photos/954677/pexels-photo-954677.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-position: 50% 50%;
+  min-height: 900px;
+}
+
+.headline {
+  text-transform: uppercase;
+  width: 275px;
+  color: #ffffff;
+  font-size: 50px;
+  border-bottom: 4px solid #ffdd40;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  font-size: 25px;
+  margin-top: 60px;
+}

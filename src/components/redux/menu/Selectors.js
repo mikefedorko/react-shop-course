@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 import { createSelector } from 'reselect';
 
 // Menu
@@ -29,6 +30,22 @@ const getCartProducts = createSelector(
     }))
 );
 
+const getCartPrices = createSelector(
+  [getCartProductIds, getCartProductAmounts, getMenuEntities],
+  (ids, amounts, entities) => ids.map(id => entities[id].price * amounts[id])
+);
+
+const getCartSumOfPrices = createSelector(
+  [getCartPrices],
+  array => {
+    let totalPrice = 0;
+    array.map(item => {
+      return (totalPrice += item);
+    });
+    return totalPrice;
+  }
+);
+
 // Auth
 const isAuthenticated = state => state.session.isAuthenticated;
 const getToken = state => state.session.token;
@@ -41,6 +58,7 @@ export default {
   getLoader,
   getCartProducts,
   getCartProductsAmount,
+  getCartSumOfPrices,
   isAuthenticated,
   getToken,
   getUser

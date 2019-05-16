@@ -16,7 +16,6 @@ const fetchData = data => {
 };
 const fetchDataWithCategory = data => {
   const normalizedMenu = normalize(data, [schemas.MenuWithCategoryShema]);
-  console.log(normalizedMenu);
 
   return {
     type: types.FETCH_DATA_WITH_CATEGORY,

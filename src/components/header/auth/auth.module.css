@@ -2,15 +2,18 @@
   display: flex;
   list-style: none;
   align-items: center;
+  margin-top: 15px;
 }
 
 .link {
   text-decoration: none;
   padding: 4px 8px;
   text-transform: uppercase;
-  color: #212121;
+  color: #8d8d8d;
+  transition: 0.3s ease-in;
 }
 
 .link:hover {
-  color: palevioletred;
+  color: #ffdd40;
+  text-decoration: none;
 }

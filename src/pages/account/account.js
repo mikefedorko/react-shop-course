@@ -1,70 +1,84 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Card, CardGroup, ListGroup } from 'react-bootstrap';
+import { Animated } from 'react-animated-css';
 
 // Font-Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faUserCircle,
-  faMale,
-  faMobileAlt,
-  faEnvelopeSquare
-} from '@fortawesome/free-solid-svg-icons';
+import { faCcMastercard } from '@fortawesome/free-brands-svg-icons';
 
-import s from './account.module.css';
+import { Selectors } from '../../components/redux/menu';
 
-library.add(faUserCircle, faMale, faMobileAlt, faEnvelopeSquare);
+import styles from './account.module.css';
 
-const AccountPage = () => (
-  <div className={s.Container}>
-    <div className={s.info}>
-      <ul style={{ listStyleType: 'none' }}>
-        <li>
-          <FontAwesomeIcon
-            icon="male"
-            style={{
-              fontSize: '35px',
-              marginLeft: '25px',
-              paddingBottom: '15px'
-            }}
-          />
-        </li>
-        <li>
-          <FontAwesomeIcon
-            icon="user-circle"
-            style={{ fontSize: '25px', paddingRight: '5px' }}
-          />
-          Bob Ross
-        </li>
-        <li>
-          <FontAwesomeIcon
-            icon="mobile-alt"
-            style={{ fontSize: '25px', paddingRight: '5px' }}
-          />
-          832-21-21
-        </li>
-        <li>
-          <FontAwesomeIcon
-            icon="envelope-square"
-            style={{ fontSize: '25px', paddingRight: '5px' }}
-          />
-          bra@gmail.com
-        </li>
-      </ul>
+library.add(faCcMastercard);
+
+const AccountPage = ({ user: { name, email } }) => (
+  <div className={styles.container}>
+    <div className={styles.headline}>
+      <span>Welcome to account </span>
     </div>
-    <div className={s.update}>
-      <span>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, dolor
-        delectus? Corporis esse, doloremque neque cum corrupti facere ut, ea
-        vitae id quae dignissimos. Libero omnis ea alias eius facere. Quae eum,
-        quaerat possimus id distinctio totam eveniet enim error veritatis
-        similique, ullam aliquid numquam dolor laudantium rem doloribus magni.
-        Fugit autem et repudiandae. Ipsam voluptates tempore deserunt cupiditate
-        official!
-      </span>
-      <br />
-      <button type="button">Update</button>
-    </div>
+    <Animated animationIn="fadeIn" animationOut="fadeOut">
+      <div className={styles.info}>
+        <CardGroup>
+          <Card>
+            <Card.Body>
+              <Card.Title>ACCOUNT</Card.Title>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <Card.Title>Name:</Card.Title>
+                  <Card.Text className={styles.cardText}>{name}</Card.Text>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Card.Title>Email:</Card.Title>
+                  <Card.Text className={styles.cardText}>{email}</Card.Text>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Card.Title>Phone number:</Card.Title>
+                  <Card.Text>+095</Card.Text>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
+          <Card className={styles.card}>
+            <Card.Body>
+              <Card.Title>ADRESS BOOK</Card.Title>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <Card.Title>Home Adress:</Card.Title>
+                  <ListGroup.Item className={styles.cardText}>
+                    29 Battin Lane, Little Hampton, United Kingdom
+                  </ListGroup.Item>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
+          <Card>
+            <Card.Body>
+              <Card.Title>CARD DETAILS</Card.Title>
+              <ListGroup>
+                <Card.Title>Payment Card:</Card.Title>
+                <ListGroup.Item className={styles.cardText}>
+                  <Card.Text>
+                    <FontAwesomeIcon
+                      icon={['fab', 'cc-mastercard']}
+                      style={{ fontSize: '25px', marginRight: '15px' }}
+                    />
+                    **** **** **** 0092
+                  </Card.Text>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
+        </CardGroup>
+      </div>
+    </Animated>
   </div>
 );
 
-export default AccountPage;
+const mapStateToProps = state => ({
+  user: Selectors.getUser(state)
+});
+
+export default connect(mapStateToProps)(AccountPage);

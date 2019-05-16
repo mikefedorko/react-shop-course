@@ -8,9 +8,5 @@ export default [
   {
     name: 'Order History',
     path: routes.ORDER_HISTORY
-  },
-  {
-    name: 'Meal Planner',
-    path: routes.PLANNER
   }
 ];

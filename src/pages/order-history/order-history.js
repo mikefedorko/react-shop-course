@@ -1,18 +1,28 @@
-import React, { Component, Fragment, lazy, Suspense } from 'react';
+import React, { Fragment, Component, lazy, Suspense } from 'react';
+import { Table, Button, Spinner } from 'react-bootstrap';
+import { Animated } from 'react-animated-css';
 
-import * as api from './server/order-history-api';
+import * as api from './api/order-history-api';
 
-import Spinner from '../../components/spinner/spinner';
+// import Spinner from '../../components/spinner/spinner';
+
+import styles from './order-history.module.css';
 
 const AsyncModalWindow = lazy(() =>
-  import('./modal-window' /* webpackChunkName: "modal-window" */)
+  import('./modal-window/modal-window' /* webpackChunkName: "modal-window" */)
 );
 
 export default class OrderHistoryPage extends Component {
   state = {
     users: [],
     isModalOpen: false,
-    infoAboutQuery: null
+    infoAboutQuery: {
+      id: null,
+      date: '',
+      price: '',
+      address: '',
+      rating: ''
+    }
   };
 
   componentDidMount() {
@@ -30,10 +40,17 @@ export default class OrderHistoryPage extends Component {
   };
 
   handleShowMoreInfo = id => {
-    api.getUserById(id).then(item => {
+    // eslint-disable-next-line no-shadow
+    api.getUserById(id).then(({ id, date, price, address, rating }) => {
       this.toggleModal();
       this.setState({
-        infoAboutQuery: JSON.stringify(item)
+        infoAboutQuery: {
+          id,
+          date,
+          price,
+          address,
+          rating
+        }
       });
     });
   };
@@ -47,51 +64,66 @@ export default class OrderHistoryPage extends Component {
 
     return (
       <Fragment>
-        <br />
         {isModalOpen && (
-          <Suspense fallback={<Spinner />}>
+          <Suspense
+            fallback={
+              <Spinner
+                animation="border"
+                role="status"
+                className={styles.spinner}
+              />
+            }
+          >
             <AsyncModalWindow
               infoAboutQuery={infoAboutQuery}
               onClick={this.toggleModal}
             />
           </Suspense>
         )}
-        <div>
-          <table border="1">
-            <tbody>
+        <Animated animationIn="fadeInLeft">
+          <Table bordered hover className={styles.table}>
+            <thead style={{ color: '#212121' }}>
               <tr>
                 <th>Date</th>
                 <th>Price</th>
                 <th>Delivery adress</th>
                 <th>Rating</th>
+                <th>Deleting</th>
+                <th>Learn More</th>
               </tr>
-              {users.map(user => (
-                <tr key={user.id}>
-                  <td>{user.date}</td>
-                  <td>{user.price}</td>
-                  <td>{user.address}</td>
-                  <td>{user.rating}</td>
-                  <td>
-                    <button
+            </thead>
+            <tbody>
+              {users.map(({ id, date, price, address, rating }) => (
+                <tr key={id}>
+                  <td>{date}</td>
+                  <td>${price}</td>
+                  <td>{address}</td>
+                  <td>{rating}</td>
+                  <td className={styles.td}>
+                    <Button
                       type="button"
-                      onClick={() => this.handleDeleteUser(user.id)}
+                      variant="outline-danger"
+                      className={styles.button}
+                      onClick={() => this.handleDeleteUser(id)}
                     >
-                      Удалить
-                    </button>
+                      Delete
+                    </Button>
                   </td>
-                  <td>
-                    <button
+                  <td className={styles.td}>
+                    <Button
                       type="button"
-                      onClick={() => this.handleShowMoreInfo(user.id)}
+                      variant="outline-success"
+                      className={styles.button}
+                      onClick={() => this.handleShowMoreInfo(id)}
                     >
-                      Подробнее
-                    </button>
+                      More
+                    </Button>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </table>
-        </div>
+          </Table>
+        </Animated>
       </Fragment>
     );
   }

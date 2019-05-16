@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  transition: 0.3s ease-in;
+}
+
+.container:hover {
+  color: #ffdd40;
+}
+
+.amount {
+  position: absolute;
+  bottom: -9px;
+  right: -9px;
+  background-color: #19191a;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  color: #ffdd40;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  font-size: 15px;
+}

@@ -1,0 +1,23 @@
+.button {
+  width: 155px;
+}
+
+.td {
+  width: 180px;
+  text-align: center;
+}
+
+.table {
+  background: #f7971e;
+  background: -webkit-linear-gradient(to left, #ffdd40, #f7971e);
+  background: linear-gradient(to left, #ffdd40, #f7971e);
+  margin: auto;
+  color: #fff;
+  font-weight: normal;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}

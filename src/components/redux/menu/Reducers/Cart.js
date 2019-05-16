@@ -10,6 +10,10 @@ const ids = (state = [], { type, payload }) => {
     case types.REMOVE_FROM_CART:
       return state.filter(id => id !== payload.id);
 
+    case types.SIGN_OUT_REQUEST:
+    case types.SIGN_OUT_SUCCESS:
+      return [];
+
     default:
       return state;
   }
@@ -20,7 +24,7 @@ const amount = (state = {}, { type, payload }) => {
     case types.ADD_TO_CART:
       return {
         ...state,
-        [payload.id]: state[payload.id] ? state[payload.id] + 1 : 1
+        [payload.id]: 1
         // Если в state есть ключ с id карточки которую нажали, то верни объект в котором распыли предыдущее
         // состояние, а для ключа [payload.id] (id кароточки на которую нажали) возьми предыдущее значение и
         // увеличь на 1. В другом случае для нового id распыли state и оставь 1 ([payload.id] - вычисляемое сво-во объекта).
@@ -42,6 +46,10 @@ const amount = (state = {}, { type, payload }) => {
 
       return newState;
     }
+
+    case types.SIGN_OUT_REQUEST:
+    case types.SIGN_OUT_SUCCESS:
+      return {};
 
     default:
       return state;

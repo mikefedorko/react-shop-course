@@ -1,4 +1,12 @@
 .avatar {
-  margin-right: 15px;
-  border-radius: 50%;
+  font-size: 55px;
+  margin-left: 10px;
+  transition: 0.3s ease-out;
+  padding-bottom: 15px;
+  cursor: pointer;
+  color: #8d8d8d;
+}
+
+.avatar:hover {
+  color: #ffdd40;
 }

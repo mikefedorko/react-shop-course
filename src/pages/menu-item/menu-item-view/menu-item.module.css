@@ -1,0 +1,49 @@
+.container {
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  min-height: 750px;
+  overflow: hidden;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainInvormation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  color: #212121;
+  background: #ffdd40;
+  text-transform: uppercase;
+  transition: 0.3s ease-in;
+  border-radius: 5px;
+  border: 5px solid #212121;
+  font-weight: bold;
+  padding: 5px;
+  width: 100%;
+}
+
+button:hover {
+  background: #ffff;
+}
+
+article {
+  background: #ffdd40;
+  margin-top: 40px;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.image > img {
+  width: 730px;
+  border: 2px solid #212121;
+  height: 515px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  margin-right: 35px;
+}
+
+.description {
+  font-size: 19px;
+}

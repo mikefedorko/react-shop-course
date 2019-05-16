@@ -1,0 +1,17 @@
+.caption {
+  margin: 0 auto;
+  margin-bottom: 400px;
+}
+
+.caption > p {
+  font-size: 50px;
+  font-weight: normal;
+}
+
+.caption > h3,
+p {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}

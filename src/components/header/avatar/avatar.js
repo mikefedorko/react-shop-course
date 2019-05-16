@@ -1,14 +1,14 @@
 import React from 'react';
-import s from './avatar.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
-const Avatar = ({ srcLink, width = 60, height = 60 }) => (
-  <img
-    className={s.avatar}
-    src={srcLink}
-    alt="avatar logo"
-    width={width}
-    height={height}
-  />
+import styles from './avatar.module.css';
+
+library.add(faUserCircle);
+
+const Avatar = () => (
+  <FontAwesomeIcon icon="user-circle" className={styles.avatar} />
 );
 
 export default Avatar;

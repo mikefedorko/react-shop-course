@@ -5,7 +5,8 @@ import Cart from './cart';
 import { Selectors, Actions } from '../../components/redux/menu';
 
 const mapStateToProps = state => ({
-  products: Selectors.getCartProducts(state)
+  products: Selectors.getCartProducts(state),
+  totalPrice: Selectors.getCartSumOfPrices(state)
 });
 
 const mapDispathToProps = {

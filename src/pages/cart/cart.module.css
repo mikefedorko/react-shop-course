@@ -1,15 +1,86 @@
-.table {
-  margin-left: auto;
-  margin-right: auto;
+.emptyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffdd40;
+  background: #212121;
+  min-height: 500px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
   border-collapse: collapse;
   text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #212121;
 }
 
-.table th,
-.table td {
-  padding: 8px 16px;
+.mealCard {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 3px;
+  width: 1200px;
+  margin: auto;
+  padding: 10px;
+  background: #ffdd40;
+  margin-bottom: 20px;
 }
 
-.table tr {
-  border-bottom: 1px solid #212121;
+.mealInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.mealImage {
+  padding: 20px;
+}
+
+.mealImage > img {
+  border-radius: 5px;
+  border: 1px solid #212121;
+}
+
+.firstBlock {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #8d8d8d;
+  padding: 10px;
+}
+
+.firstBlock > b {
+}
+
+.secondBlock {
+  margin-left: auto;
+  margin-top: 10px;
+  text-align: left;
+  padding: 10px;
+}
+
+.secondBlock > button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.secondBlock > span {
+  width: 500px;
+}
+
+.amount {
+  margin-left: auto;
+  margin-right: 35px;
+}
+
+.thirdBlock {
+  color: #ffdd40;
+  font-weight: normal;
+  text-align: right;
+  width: 1200px;
+  margin: 0 auto;
+  font-size: 30px;
 }

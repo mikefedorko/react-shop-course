@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Animated } from 'react-animated-css';
+
 import { AsyncOperations, Selectors } from '../../components/redux/menu';
 
-import Form from './common/Form/Form';
-import Input from './common/Input/Input';
-import Label from './common/Label/Label';
-import Button from './common/Button/Button';
+import Form from '../../components/form-elements/Form';
+import Input from '../../components/form-elements/Input';
+import Label from '../../components/form-elements/Label';
+import Button from '../../components/form-elements/Button';
+
+import styles from './sign-up.module.css';
 
 const INITIAL_STATE = { name: '', email: '', password: '' };
 
@@ -40,38 +44,42 @@ class SignUpForm extends Component {
     const { name, email, password } = this.state;
 
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Label text="Name">
-          <Input
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-            autocomplete="off"
-          />
-        </Label>
+      <Animated animationIn="fadeInLeft" animationOut="fadeOut">
+        <div className={styles.signUp}>
+          <Form onSubmit={this.handleSubmit}>
+            <Label text="Name">
+              <Input
+                type="text"
+                name="name"
+                value={name}
+                onChange={this.handleChange}
+                placeholder="Any Name..."
+              />
+            </Label>
 
-        <Label text="Email">
-          <Input
-            type="email"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-            placeholder="example@mail.com"
-          />
-        </Label>
+            <Label text="Email">
+              <Input
+                type="email"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+                placeholder="example@mail.com"
+              />
+            </Label>
 
-        <Label text="Password">
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-        </Label>
+            <Label text="Password">
+              <Input
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Label>
 
-        <Button label="Sign up" />
-      </Form>
+            <Button label="Sign up" />
+          </Form>
+        </div>
+      </Animated>
     );
   }
 }

@@ -4,25 +4,24 @@ import { Selectors, AsyncOperations } from '../../redux/menu';
 
 import Nav from '../navigation/nav';
 import UserMenu from '../user-menu/user-menu';
-import Logo from '../logo/logo';
+import Logo from '../../logo';
 import logo from '../assets/logo.png';
-import AvatarLogo from '../assets/avatar.jpeg';
 import Auth from '../auth/auth';
 
-import s from './header-container.module.css';
+import styles from './header-container.module.css';
 
 const HeaderContainer = ({ isAuthenticated, user, onSignOut }) => (
-  <header className={s.header}>
-    <div className={s.logo}>
-      <Logo srcLink={logo} alt="Awesome logo" width={140} height={100} />
+  <header className={styles.header}>
+    <div className={styles.logo}>
+      <Logo srcLink={logo} alt="Trattorio" />
     </div>
     <Nav isAuthenticated={isAuthenticated} />
-    <div className={s.userMenu}>
+    <div className={styles.userMenu}>
       <Auth isAuthenticated={isAuthenticated} />
     </div>
     {isAuthenticated && (
-      <div className={s.userMenu}>
-        <UserMenu avatar={AvatarLogo} onSignOut={onSignOut} user={user} />
+      <div className={styles.userMenu}>
+        <UserMenu onSignOut={onSignOut} user={user} />
       </div>
     )}
   </header>
