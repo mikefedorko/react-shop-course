@@ -4,13 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Clone or download final branch: homework-5
 
-1.In main folder: (/react-shop-course-homework-5)-yarn start and yarn server;
+1. In main folder: (/react-shop-course-homework-5)-yarn start and yarn server;
 
 yarn start-Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 yarn server-Runs the json-server with database for HTTP requests. 
 Open [[http://localhost:3004](http://localhost:3004)].
+
 
 2. In folder server (/react-shop-course-homework-5/server)-yarn server;
 
