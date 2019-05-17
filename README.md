@@ -1,16 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run Foody React App
+
+Clone or download final branch: homework-5
+1.In main folder: (/react-shop-course-homework-5)-yarn start and yarn server;
+yarn start-Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+yarn server-Runs the json-server with database for HTTP requests. 
+Open [[http://localhost:3004](http://localhost:3004)].
+
+2. In folder server (/react-shop-course-homework-5/server)-yarn server;
+yarn server-Runs the server for authentication logic.
+Open [[http://localhost:3004](http://localhost:3004)].
+
+It's all =).
+
+
+============================================================================================================================
+## Also Available Scripts
 
 In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
 ### `npm test`
 
