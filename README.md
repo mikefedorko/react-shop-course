@@ -13,9 +13,9 @@ yarn server-Runs the json-server with database for HTTP requests.
 Open [[http://localhost:3004](http://localhost:3004)].
 
 
-2. In folder server: (/react-shop-course-homework-5/server)-yarn server;
+2. In folder server: (/react-shop-course-homework-5/server)-yarn start;
 
-yarn server-Runs the server for authentication logic.
+yarn start-Runs the server for authentication logic.
 Open [[http://localhost:3004](http://localhost:3004)].
 
 It's all =).
