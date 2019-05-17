@@ -10,12 +10,14 @@ yarn start-Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 yarn server-Runs the json-server with database for HTTP requests. 
+
 Open [[http://localhost:3004](http://localhost:3004)].
 
 
 2. In folder server: (/react-shop-course-homework-5/server)-yarn start;
 
 yarn start-Runs the server for authentication logic.
+
 Open [[http://localhost:3004](http://localhost:3004)].
 
 It's all =).
