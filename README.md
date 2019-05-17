@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## How to run Foody React App
 
-Clone or download final branch: homework-5
+Clone or download final branch: homework-5.
 
 1. In main folder: (/react-shop-course-homework-5)-yarn start and yarn server;
 
