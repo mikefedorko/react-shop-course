@@ -19,7 +19,7 @@ yarn start-Runs the server for authentication logic.
 
 It's all =).
 
-## Available Scripts
+## Also Available Scripts
 
 In the project directory, you can run:
 
