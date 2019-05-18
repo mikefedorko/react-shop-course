@@ -18,7 +18,6 @@ Open [[http://localhost:3004](http://localhost:3004)].
 
 yarn start-Runs the server for authentication logic.
 
-Open [[http://localhost:3004](http://localhost:3004)].
 
 It's all =).
 
