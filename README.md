@@ -10,7 +10,6 @@ yarn start-Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 yarn server-Runs the json-server with database for HTTP requests. 
-
 Open [[http://localhost:3004](http://localhost:3004)].
 
 
